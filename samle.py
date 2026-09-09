@@ -78,7 +78,7 @@ AARSAK_MONSTRE = [
 PAAVIRKNINGER = [
     ("innstilt", re.compile(r"\binnstilt\b", re.IGNORECASE)),
     ("faerre_vogner", re.compile(r"vogn(?:er)?\s+i\s+stedet\s+for|færre\s+vogner", re.IGNORECASE)),
-    ("buss_for_tog", re.compile(r"buss\s+for\s+tog|setter\s+opp\s+buss|kjører\s+buss", re.IGNORECASE)),
+    ("buss_for_tog", re.compile(r"buss\s+for\s+tog|setter\s+opp\s+buss", re.IGNORECASE)),
     ("forsinket", re.compile(r"\bforsinke(?:t|lser)\b", re.IGNORECASE)),
 ]
 
@@ -330,7 +330,9 @@ def bygg_sammendrag() -> dict:
         if post.get("vogner_planlagt") and post.get("vogner_faktisk"):
             tapte_vogner += post["vogner_planlagt"] - post["vogner_faktisk"]
 
-        aarsak = post.get("aarsak")
+        # Utledes pa nytt, som paavirkning under. Ellers beholder gamle rader
+        # resultatet av en gammel regex, og en forbedring virker bare framover.
+        aarsak = hent_aarsak(post.get("beskrivelse_no"))
         if aarsak:
             # Planlagt vedlikehold og akutte unnskyldninger hoerer ikke hjemme
             # i samme bunke. "Bane NOR utfoerer vedlikeholdsarbeid" er ikke
@@ -349,7 +351,11 @@ def bygg_sammendrag() -> dict:
         # Det interessante tallet: meldinger som forteller den reisende at noe
         # er galt, uten a si hvorfor. Planlagt arbeid holdes utenfor - der er
         # grunnen kjent selv om den ikke star som en "skyldes"-setning.
-        if not aarsak and not post.get("planlagt"):
+        # Kun meldinger som selv slar fast en svikt. Vy deler ett avvik i
+        # flere meldinger, og bussmeldingene er oppfolginger der grunnen sto
+        # i den forste - de teller ikke som "uten oppgitt grunn".
+        if (not aarsak and not post.get("planlagt")
+                and paavirkning in ("innstilt", "faerre_vogner")):
             uten_grunn[paavirkning] = uten_grunn.get(paavirkning, 0) + 1
 
     return {
