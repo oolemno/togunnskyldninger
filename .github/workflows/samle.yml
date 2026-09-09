@@ -1,0 +1,63 @@
+name: samle
+
+on:
+  schedule:
+    # Hvert tiende minutt. Merk: GitHub kjører schedule "best effort" — under
+    # last kan den bli forsinket 10–30 min. Det tåler vi: de fleste avvik har
+    # gyldighet i timer, ikke minutter.
+    - cron: "*/10 * * * *"
+  workflow_dispatch: {}
+
+# Aldri to kjøringer samtidig — de ville skrevet til samme fil og kollidert i git.
+concurrency:
+  group: samle
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  samle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Hent avviksmeldinger
+        env:
+          ET_CLIENT_NAME: parole-togunnskyldninger
+        run: python samle.py
+
+      - name: Commit hvis noe nytt
+        run: |
+          set -euo pipefail
+          git config user.name  "togunnskyldninger"
+          git config user.email "actions@users.noreply.github.com"
+
+          if git diff --quiet -- data sammendrag.json; then
+            echo "Ingenting nytt. Ingen commit."
+            exit 0
+          fi
+
+          git add data sammendrag.json
+          antall=$(git diff --cached --numstat -- data \
+                   | awk '{s+=$1} END {print s+0}')
+          git commit -m "${antall} nye meldinger"
+
+          # En forsinket kjøring kan overlappe med forrige push. Rebase og
+          # prøv igjen noen ganger framfor å miste en runde med data.
+          for forsok in 1 2 3; do
+            if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" \
+               && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo "Pushet på forsøk ${forsok}."
+              exit 0
+            fi
+            echo "Push feilet (forsøk ${forsok}), prøver igjen…"
+            sleep 5
+          done
+          echo "Klarte ikke å pushe etter 3 forsøk." >&2
+          exit 1

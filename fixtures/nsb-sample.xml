@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Siri xmlns="http://www.siri.org.uk/siri" version="2.0">
+<ServiceDelivery>
+<ResponseTimestamp>2026-09-09T11:27:37.288306735+02:00</ResponseTimestamp>
+<ProducerRef>ENT</ProducerRef>
+<MoreData>false</MoreData>
+<SituationExchangeDelivery version="2.0">
+<ResponseTimestamp>2026-09-09T11:27:37.28831011+02:00</ResponseTimestamp>
+<Situations>
+<PtSituationElement>
+<CreationTime>2026-09-09T10:18:16.820944658+02:00</CreationTime>
+<ParticipantRef>NSB</ParticipantRef>
+<SituationNumber>NSB:SituationNumber:9e9a90b0-5f29-4ea5-aa4f-30bb126007a0</SituationNumber>
+<Version>1</Version>
+<Source><SourceType>directReport</SourceType></Source>
+<Progress>open</Progress>
+<ValidityPeriod>
+<StartTime>2026-09-09T10:18:16.803279828+02:00</StartTime>
+<EndTime>2026-09-09T14:03:00+02:00</EndTime>
+</ValidityPeriod>
+<UndefinedReason/>
+<Priority>9</Priority>
+<ReportType>general</ReportType>
+<Summary xml:lang="NO">Færre vogner</Summary>
+<Summary xml:lang="EN">Fewer carriages</Summary>
+<Description xml:lang="NO">Denne avgangen kjører dessverre med 4 vogner i stedet for 8 vogner. Dette skyldes at et kjøretøy sperrer sporet.</Description>
+<Description xml:lang="EN">Unfortunately, this departure runs with 4 carriages instead of 8 carriages. This is because a vehicle is blocking the track.</Description>
+<Affects>
+<VehicleJourneys>
+<AffectedVehicleJourney>
+<DatedVehicleJourneyRef>VYG:DatedServiceJourney:2229_LLS-SPI_26-09-09</DatedVehicleJourneyRef>
+<Route/>
+</AffectedVehicleJourney>
+</VehicleJourneys>
+</Affects>
+</PtSituationElement>
+<PtSituationElement>
+<CreationTime>2026-09-09T10:31:10.602294156+02:00</CreationTime>
+<ParticipantRef>NSB</ParticipantRef>
+<SituationNumber>NSB:SituationNumber:2598017d-b4a5-41d3-a527-0d6fb43862a2</SituationNumber>
+<Version>1</Version>
+<Source><SourceType>directReport</SourceType></Source>
+<Progress>open</Progress>
+<ValidityPeriod>
+<StartTime>2026-09-09T10:31:10.574988961+02:00</StartTime>
+<EndTime>2026-09-09T13:54:21+02:00</EndTime>
+</ValidityPeriod>
+<UndefinedReason/>
+<Priority>4</Priority>
+<ReportType>incident</ReportType>
+<Summary xml:lang="NO">Innstilt Larvik–Skien</Summary>
+<Summary xml:lang="EN">Cancelled Larvik–Skien</Summary>
+<Description xml:lang="NO">Toget er innstilt mellom Larvik og Skien. Det skyldes at toget er forsinket.</Description>
+<Description xml:lang="EN">The train has been cancelled between Larvik and Skien. This is because the train is delayed.</Description>
+<Affects>
+<VehicleJourneys>
+<AffectedVehicleJourney>
+<DatedVehicleJourneyRef>VYG:DatedServiceJourney:813_EVL-SKN_26-09-09</DatedVehicleJourneyRef>
+<Route>
+<StopPoints>
+<AffectedStopPoint>
+<StopPointRef>NSR:StopPlace:506</StopPointRef>
+<StopCondition>startPoint</StopCondition>
+<StopCondition>notStopping</StopCondition>
+</AffectedStopPoint>
+<AffectedStopPoint>
+<StopPointRef>NSR:StopPlace:12</StopPointRef>
+<StopCondition>startPoint</StopCondition>
+</AffectedStopPoint>
+</StopPoints>
+</Route>
+</AffectedVehicleJourney>
+</VehicleJourneys>
+</Affects>
+</PtSituationElement>
+<PtSituationElement>
+<CreationTime>2026-09-09T09:10:53.508536505+02:00</CreationTime>
+<ParticipantRef>NSB</ParticipantRef>
+<SituationNumber>NSB:SituationNumber:47b6027c-cc43-4557-8943-787db66baa0e</SituationNumber>
+<Version>1</Version>
+<Source><SourceType>directReport</SourceType></Source>
+<Progress>open</Progress>
+<ValidityPeriod>
+<StartTime>2026-09-09T09:10:53.490963563+02:00</StartTime>
+<EndTime>2026-09-09T13:53:00+02:00</EndTime>
+</ValidityPeriod>
+<UndefinedReason/>
+<Priority>9</Priority>
+<ReportType>general</ReportType>
+<Summary xml:lang="NO">Færre vogner</Summary>
+<Summary xml:lang="EN">Fewer carriages</Summary>
+<Description xml:lang="NO">Denne avgangen kjører dessverre med 5 vogner i stedet for 10 vogner. Dette skyldes at vi mangler et togsett.</Description>
+<Description xml:lang="EN">Unfortunately, this departure runs with 5 carriages instead of 10 carriages. This is because we are a train set short.</Description>
+<Affects>
+<VehicleJourneys>
+<AffectedVehicleJourney>
+<DatedVehicleJourneyRef>VYG:DatedServiceJourney:813_EVL-SKN_26-09-09</DatedVehicleJourneyRef>
+<Route/>
+</AffectedVehicleJourney>
+</VehicleJourneys>
+</Affects>
+</PtSituationElement>
+<PtSituationElement>
+<CreationTime>2026-09-07T14:19:28.527322548+02:00</CreationTime>
+<ParticipantRef>NSB</ParticipantRef>
+<SituationNumber>NSB:SituationNumber:3cf1126c-9764-4f5a-8167-f8fee61b1315</SituationNumber>
+<Version>1</Version>
+<Source><SourceType>directReport</SourceType></Source>
+<Progress>open</Progress>
+<ValidityPeriod>
+<StartTime>2026-09-07T14:19:28.481559105+02:00</StartTime>
+</ValidityPeriod>
+<UndefinedReason/>
+<Priority>9</Priority>
+<ReportType>general</ReportType>
+<Summary xml:lang="NO">Heis på Skarnes ute av drift</Summary>
+<Summary xml:lang="EN">Lift at Skarnes out of order</Summary>
+<Description xml:lang="NO">Heisen på Skarnes til spor 2 er ute av drift.</Description>
+<Description xml:lang="EN">The lift at Skarnes to platform 2 is out of order.</Description>
+<Affects>
+<StopPoints>
+<AffectedStopPoint>
+<StopPointRef>NSR:StopPlace:123</StopPointRef>
+<StopCondition>startPoint</StopCondition>
+<StopCondition>destination</StopCondition>
+</AffectedStopPoint>
+</StopPoints>
+</Affects>
+</PtSituationElement>
+<PtSituationElement>
+<CreationTime>2026-09-09T05:10:02.423+02:00</CreationTime>
+<ParticipantRef>GOA</ParticipantRef>
+<SituationNumber>GOA:SituationNumber:AV26-4552</SituationNumber>
+<Source><SourceType>directReport</SourceType></Source>
+<ValidityPeriod>
+<StartTime>2026-10-10T06:00:00+02:00</StartTime>
+<EndTime>2026-10-11T11:00:00+02:00</EndTime>
+</ValidityPeriod>
+<Severity>noImpact</Severity>
+<Priority>3</Priority>
+<ReportType>incident</ReportType>
+<Planned>true</Planned>
+<Summary xml:lang="EN">The Southern Line: Bane NOR is carrying out maintenance work.</Summary>
+<Summary xml:lang="NO">Sørtoget: Bane NOR utfører vedlikeholdsarbeid.</Summary>
+<Description xml:lang="EN">Bane NOR is carrying out maintenance work. The line will therefore be closed during this period, and we are providing a replacement bus service.</Description>
+<Description xml:lang="NO">Bane NOR utfører vedlikeholdsarbeid. Strekningen vil derfor være stengt i denne perioden og vi setter opp buss for tog mellom Oslo og Kongsberg for Sørtoget.</Description>
+<Advice xml:lang="NO">Buss for tog</Advice>
+<Affects>
+<VehicleJourneys>
+<AffectedVehicleJourney><DatedVehicleJourneyRef>GOA:DatedServiceJourney:B706-DR_KBG-OS_312A2044_26-10-10</DatedVehicleJourneyRef><Route/></AffectedVehicleJourney>
+<AffectedVehicleJourney><DatedVehicleJourneyRef>GOA:DatedServiceJourney:B706-DS_KBG-OS_57FEF42_26-10-10</DatedVehicleJourneyRef><Route/></AffectedVehicleJourney>
+<AffectedVehicleJourney><DatedVehicleJourneyRef>GOA:DatedServiceJourney:B707-D_OSL-KBG_A3C6907_26-10-10</DatedVehicleJourneyRef><Route/></AffectedVehicleJourney>
+</VehicleJourneys>
+</Affects>
+</PtSituationElement>
+</Situations>
+</SituationExchangeDelivery>
+</ServiceDelivery>
+</Siri>
