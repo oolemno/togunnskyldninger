@@ -67,7 +67,35 @@ AARSAK_MONSTRE = [
     re.compile(r"skyldes\s+(.+?)(?:\.|$)", re.IGNORECASE | re.DOTALL),
     re.compile(r"(?:pa|på)\s+grunn\s+av\s+(.+?)(?:\.|$)", re.IGNORECASE | re.DOTALL),
     re.compile(r"(?:grunnet)\s+(.+?)(?:\.|$)", re.IGNORECASE | re.DOTALL),
+    # Planlagt arbeid oppgir grunnen som en aktiv setning, ikke med "skyldes":
+    # "Bane NOR utforer vedlikeholdsarbeid."
+    re.compile(r"utf(?:o|ø)rer\s+(vedlikeholdsarbeid|arbeid)", re.IGNORECASE),
 ]
+
+# Hva meldingen gjor mot den reisende. Rekkefolgen betyr noe: "Toget er
+# innstilt ... Det skyldes at toget er forsinket" skal klassifiseres som
+# innstilt, ikke forsinket.
+PAAVIRKNINGER = [
+    ("innstilt", re.compile(r"\binnstilt\b", re.IGNORECASE)),
+    ("faerre_vogner", re.compile(r"vogn(?:er)?\s+i\s+stedet\s+for|færre\s+vogner", re.IGNORECASE)),
+    ("buss_for_tog", re.compile(r"buss\s+for\s+tog|setter\s+opp\s+buss|kjører\s+buss", re.IGNORECASE)),
+    ("forsinket", re.compile(r"\bforsinke(?:t|lser)\b", re.IGNORECASE)),
+]
+
+
+def klassifiser(beskrivelse: str | None, tittel: str | None = None) -> str | None:
+    """
+    Hva meldingen faktisk gjor mot den reisende, eller None hvis den bare
+    informerer ("Ta andre tog fra Skoyen", "Heisen er ute av drift",
+    "Toget kjorer igjen etter tidligere stans").
+    """
+    tekst = " ".join(t for t in (tittel, beskrivelse) if t)
+    if not tekst:
+        return None
+    for navn, monster in PAAVIRKNINGER:
+        if monster.search(tekst):
+            return navn
+    return None
 
 # "kjorer dessverre med 4 vogner i stedet for 8 vogner"
 VOGN_MONSTER = re.compile(
@@ -170,6 +198,7 @@ def parse_situasjoner(xml_tekst: str, codespace: str) -> list[dict]:
             "beskrivelse_en": description.get("EN"),
             "rad_no": advice.get("NO"),
             "aarsak": aarsak,
+            "paavirkning": klassifiser(beskrivelse_no, summary.get("NO")),
             "vogner_faktisk": vogner[0] if vogner else None,
             "vogner_planlagt": vogner[1] if vogner else None,
             # Affects-listene kan ha hundrevis av elementer ved planlagt
@@ -286,17 +315,42 @@ def bygg_sammendrag() -> dict:
                 if nr not in siste_versjon or versjonsnr(post) >= versjonsnr(siste_versjon[nr]):
                     siste_versjon[nr] = post
 
-    aarsaker: dict[str, int] = {}
+    uplanlagt: dict[str, int] = {}
+    planlagt: dict[str, int] = {}
     per_selskap: dict[str, int] = {}
+    per_paavirkning: dict[str, int] = {}
+    uten_grunn: dict[str, int] = {}
     tapte_vogner = 0
+    kun_informasjon = 0
 
     for post in siste_versjon.values():
-        if post.get("aarsak"):
-            aarsaker[post["aarsak"]] = aarsaker.get(post["aarsak"], 0) + 1
         cs = post.get("codespace") or "?"
         per_selskap[cs] = per_selskap.get(cs, 0) + 1
+
         if post.get("vogner_planlagt") and post.get("vogner_faktisk"):
             tapte_vogner += post["vogner_planlagt"] - post["vogner_faktisk"]
+
+        aarsak = post.get("aarsak")
+        if aarsak:
+            # Planlagt vedlikehold og akutte unnskyldninger hoerer ikke hjemme
+            # i samme bunke. "Bane NOR utfoerer vedlikeholdsarbeid" er ikke
+            # samme sak som "vi mangler et togsett".
+            bunke = planlagt if post.get("planlagt") else uplanlagt
+            bunke[aarsak] = bunke.get(aarsak, 0) + 1
+
+        # Utledes pa nytt her framfor a leses fra posten, sa hele arkivet -
+        # ogsa rader lagret for denne klassifiseringen fantes - telles likt.
+        paavirkning = klassifiser(post.get("beskrivelse_no"), post.get("tittel_no"))
+        if not paavirkning:
+            kun_informasjon += 1
+            continue
+        per_paavirkning[paavirkning] = per_paavirkning.get(paavirkning, 0) + 1
+
+        # Det interessante tallet: meldinger som forteller den reisende at noe
+        # er galt, uten a si hvorfor. Planlagt arbeid holdes utenfor - der er
+        # grunnen kjent selv om den ikke star som en "skyldes"-setning.
+        if not aarsak and not post.get("planlagt"):
+            uten_grunn[paavirkning] = uten_grunn.get(paavirkning, 0) + 1
 
     return {
         "oppdatert": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -305,8 +359,13 @@ def bygg_sammendrag() -> dict:
         "samler_siden": forste,
         "sist_sett": siste,
         "tapte_vogner": tapte_vogner,
+        "uten_oppgitt_grunn": sum(uten_grunn.values()),
+        "kun_informasjon": kun_informasjon,
         "per_selskap": dict(sorted(per_selskap.items(), key=lambda x: -x[1])),
-        "arsaker": dict(sorted(aarsaker.items(), key=lambda x: -x[1])),
+        "paavirkning": dict(sorted(per_paavirkning.items(), key=lambda x: -x[1])),
+        "uten_grunn_per_paavirkning": dict(sorted(uten_grunn.items(), key=lambda x: -x[1])),
+        "arsaker_uplanlagt": dict(sorted(uplanlagt.items(), key=lambda x: -x[1])),
+        "arsaker_planlagt": dict(sorted(planlagt.items(), key=lambda x: -x[1])),
     }
 
 
@@ -379,7 +438,8 @@ def main() -> int:
     print(
         f"Arkiv: {sammendrag['antall_situasjoner']} situasjoner "
         f"({sammendrag['antall_rader']} rader), "
-        f"{len(sammendrag['arsaker'])} unike arsaker, "
+        f"{len(sammendrag['arsaker_uplanlagt'])} unike uplanlagte arsaker, "
+        f"{sammendrag['uten_oppgitt_grunn']} uten oppgitt grunn, "
         f"{sammendrag['tapte_vogner']} tapte vogner."
     )
     return 0
