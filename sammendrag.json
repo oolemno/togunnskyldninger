@@ -1,20 +1,38 @@
 {
-  "oppdatert": "2026-09-09T10:47:19+00:00",
-  "antall_situasjoner": 86,
-  "antall_rader": 87,
+  "oppdatert": "2026-09-09T11:18:22+00:00",
+  "antall_situasjoner": 628,
+  "antall_rader": 630,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-09-09T10:45:41+00:00",
+  "sist_sett": "2026-09-09T11:18:22+00:00",
   "tapte_vogner": 155,
   "uten_oppgitt_grunn": 1,
   "kun_informasjon": 29,
   "per_selskap": {
-    "NSB": 80,
-    "GOA": 6
+    "RUT": 216,
+    "ATB": 88,
+    "NSB": 81,
+    "SKY": 44,
+    "VYB": 32,
+    "TEL": 31,
+    "MOR": 28,
+    "GCO": 24,
+    "INN": 17,
+    "TRO": 15,
+    "KOL": 11,
+    "VOT": 9,
+    "NOR": 9,
+    "GOA": 6,
+    "AKT": 5,
+    "BRA": 5,
+    "NBU": 4,
+    "VIL": 1,
+    "FIN": 1,
+    "OST": 1
   },
   "paavirkning": {
     "faerre_vogner": 44,
     "buss_for_tog": 6,
-    "forsinket": 4,
+    "forsinket": 5,
     "innstilt": 3
   },
   "uten_grunn_per_paavirkning": {
@@ -24,10 +42,10 @@
     "vi mangler et togsett": 43,
     "en tidligere stans": 3,
     "toget er forsinket": 2,
+    "andre tog på strekningen er forsinket": 2,
     "et kjøretøy sperrer sporet": 1,
     "en teknisk feil med toget": 1,
     "vedlikehold": 1,
-    "andre tog på strekningen er forsinket": 1,
     "strømproblemer": 1
   },
   "arsaker_planlagt": {
