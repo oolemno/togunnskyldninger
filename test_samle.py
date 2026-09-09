@@ -22,7 +22,7 @@ def sjekk(navn, faktisk, forventet):
 
 
 def main():
-    poster = samle.parse_situasjoner(FIXTURE.read_text(encoding="utf-8"), "NSB")
+    poster = samle.parse_situasjoner(FIXTURE.read_text(encoding="utf-8"))
     etter_nr = {p["situasjonsnummer"].split(":")[-1][:8]: p for p in poster}
 
     print("Parsing")
@@ -53,7 +53,7 @@ def main():
     sjekk("ingen vogner nevnt", etter_nr["2598017d"]["vogner_faktisk"], None)
 
     print("\nFelter som mangler hos noen selskaper")
-    goa = etter_nr["AV26-455"] if "AV26-455" in etter_nr else [p for p in poster if p["codespace"] == "NSB" and p["deltaker"] == "GOA"][0]
+    goa = [p for p in poster if p["deltaker"] == "GOA"][0]
     sjekk("GOA uten <Version>", goa["versjon"], None)
     sjekk("GOA uten <Progress>", goa["framdrift"], None)
     sjekk("GOA planlagt=True", goa["planlagt"], True)

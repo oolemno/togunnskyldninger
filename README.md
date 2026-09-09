@@ -51,13 +51,30 @@ vokst fortere enn dataen er verdt.
 
 Gratis, ingen API-nøkkel, ingen registrering. Entur ber om at klienter
 identifiserer seg med `ET-Client-Name` — uidentifiserte konsumenter blir
-strupet. Oppgitt grense er **4 kall i minuttet**; scriptet venter 16 sekunder
-mellom hvert selskap.
+strupet. Oppgitt grense er 4 kall i minuttet; vi bruker **ett**.
 
 Dataen er **NLOD**-lisensiert. Attribusjon til Entur og togselskapene.
 
-Selskaper som hentes: Vy (`NSB`), Go-Ahead (`GOA`), SJ Nord (`SJN`),
-Flytoget (`FLT`), Vy Gjøvikbanen (`GJB`), Vy Group (`VYG`), Bane NOR (`BNR`).
+### Hvorfor hele feeden, ikke per selskap
+
+Første versjon hentet sju gjettede selskapskoder hver for seg. Fem av dem
+returnerte konsekvent null — og Entur svarer med tom liste også på en
+`datasetId` som ikke finnes, så vi kunne ikke se forskjell på «stille» og
+«feil kode».
+
+Nå hentes hele feeden i ett kall (~1,3 MB, ca. 600 aktive situasjoner i hele
+landet) og filtreringen skjer i opptellingen. Det har tre følger: en feil kode
+kan ikke lenger skjule et selskap, `sammendrag.json` fører en folketelling over
+alle deltakerkoder vi har sett, og alt som samles inn er lagret — også buss og
+bane — selv om bare tog telles i statistikken.
+
+Prinsippet bak: innsamling er den eneste beslutningen som ikke kan gjøres om.
+Klassifisering, regex og opptelling kan skrives om og kjøres på nytt over
+arkivet. Data vi ikke hentet er borte.
+
+Målt 9. september 2026: bare `NSB` (Vy) og `GOA` (Go-Ahead) publiserer
+togavvik til Entur i det hele tatt. `SJN`, `FLT`, `GJB`, `VYG` og `BNR` fantes
+ikke i feeden. Begynner de å publisere, fanges det opp automatisk.
 
 ## Kjøre lokalt
 
@@ -89,7 +106,9 @@ stopper opp uten grunn: sjekk om workflowen er deaktivert i Actions-fanen.
 
 **Go-Ahead er mindre interessant enn Vy.** Deres meldinger er stort sett
 ordrikt planlagt vedlikehold med enorme lister over berørte avganger. De
-korte, direkte, årsaksbærende meldingene kommer fra Vy.
+korte, direkte, årsaksbærende meldingene kommer fra Vy — som i praksis står
+for 74 av 80 togmeldinger. Dette er nærmere «Vys unnskyldninger» enn navnet
+antyder.
 
 ## Kontekst det er verdt å ha
 

@@ -21,7 +21,6 @@ import json
 import os
 import re
 import sys
-import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -32,25 +31,22 @@ from xml.etree import ElementTree as ET
 
 BASE_URL = "https://api.entur.io/realtime/v1/rest/sx"
 
-# Kun togselskaper. Kodene er Enturs "codespace"-ID-er.
-CODESPACES = [
-    ("NSB", "Vy"),
-    ("GOA", "Go-Ahead (Sørtoget)"),
-    ("SJN", "SJ Nord"),
-    ("FLT", "Flytoget"),
-    ("GJB", "Vy Gjøvikbanen"),
-    ("VYG", "Vy Group"),
-    ("BNR", "Bane NOR"),
-]
+# Vi henter HELE feeden i ett kall, ikke per selskapskode. Grunnen: koder vi
+# gjetter pa kan vaere feil eller do, og da mister vi et selskap uten a merke
+# det. Innsamling er den eneste beslutningen som ikke kan gjores om i ettertid,
+# sa den skal vaere sa bred som mulig. Filtreringen skjer i opptellingen, der
+# den kan endres nar som helst.
+#
+# Kjente togdeltakere. Brukes KUN til statistikk, aldri til henting - sa lista
+# kan utvides fritt, ogsa med tilbakevirkende kraft over hele arkivet.
+TOGSELSKAP = {"NSB", "GOA", "SJN", "FLT", "GJB", "VYG", "BNR"}
 
 # Entur ber om at klienter identifiserer seg. Uidentifiserte konsumenter
 # blir strupet eller blokkert.
 CLIENT_NAME = os.environ.get("ET_CLIENT_NAME", "parole-togunnskyldninger")
 
-# Entur oppgir 4 kall per minutt pa dette endepunktet. 16 sekunder mellom
-# hvert kall gir god margin.
-SLEEP_BETWEEN = float(os.environ.get("SLEEP_BETWEEN", "16"))
-TIMEOUT = 60
+# Ett kall per kjoring holder oss trygt innenfor Enturs 4 kall/minutt.
+TIMEOUT = 120
 
 SIRI_NS = "{http://www.siri.org.uk/siri}"
 XML_LANG = "{http://www.w3.org/XML/1998/namespace}lang"
@@ -156,7 +152,7 @@ def _sprak(node, tag: str) -> dict[str, str]:
     return ut
 
 
-def parse_situasjoner(xml_tekst: str, codespace: str) -> list[dict]:
+def parse_situasjoner(xml_tekst: str) -> list[dict]:
     """Gjor et SIRI SX-svar om til flate poster."""
     rot = ET.fromstring(xml_tekst)
     poster = []
@@ -180,7 +176,6 @@ def parse_situasjoner(xml_tekst: str, codespace: str) -> list[dict]:
         stopp = el.findall(f".//{SIRI_NS}StopPointRef")
 
         post = {
-            "codespace": codespace,
             "situasjonsnummer": _tekst(el, f"{SIRI_NS}SituationNumber"),
             "versjon": _tekst(el, f"{SIRI_NS}Version"),
             "opprettet": _tekst(el, f"{SIRI_NS}CreationTime"),
@@ -224,10 +219,10 @@ def noekkel(post: dict) -> str:
 
 # --- Henting ----------------------------------------------------------------
 
-def hent(codespace: str) -> str:
-    url = f"{BASE_URL}?datasetId={codespace}"
+def hent() -> str:
+    """Hele SIRI SX-feeden, alle selskaper, ett kall. Ca. 1,3 MB."""
     req = urllib.request.Request(
-        url,
+        BASE_URL,
         headers={
             "ET-Client-Name": CLIENT_NAME,
             "Accept": "application/xml",
@@ -324,8 +319,12 @@ def bygg_sammendrag() -> dict:
     kun_informasjon = 0
 
     for post in siste_versjon.values():
-        cs = post.get("codespace") or "?"
+        # Folketelling over ALT vi har samlet - sa den dagen SJ Nord begynner
+        # a publisere, dukker de opp her av seg selv.
+        cs = post.get("deltaker") or post.get("codespace") or "?"
         per_selskap[cs] = per_selskap.get(cs, 0) + 1
+        if cs not in TOGSELSKAP:
+            continue
 
         if post.get("vogner_planlagt") and post.get("vogner_faktisk"):
             tapte_vogner += post["vogner_planlagt"] - post["vogner_faktisk"]
@@ -395,32 +394,30 @@ def main() -> int:
     sett = les_sette_noekler()
     nye: list[dict] = []
     feil = 0
+    ferske: list[dict] = []
 
-    for i, (codespace, navn) in enumerate(CODESPACES):
-        if i:
-            time.sleep(SLEEP_BETWEEN)
-        try:
-            xml_tekst = hent(codespace)
-        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
-            print(f"  ! {codespace} ({navn}): {e}", file=sys.stderr)
-            feil += 1
-            continue
+    try:
+        xml_tekst = hent()
+        poster = parse_situasjoner(xml_tekst)
+    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
+        print(f"  ! henting feilet: {e}", file=sys.stderr)
+        feil = 1
+        poster = []
+    except ET.ParseError as e:
+        print(f"  ! kunne ikke parse XML: {e}", file=sys.stderr)
+        feil = 1
+        poster = []
 
-        try:
-            poster = parse_situasjoner(xml_tekst, codespace)
-        except ET.ParseError as e:
-            print(f"  ! {codespace} ({navn}): kunne ikke parse XML: {e}", file=sys.stderr)
-            feil += 1
-            continue
-
+    if not feil:
         ferske = [p for p in poster if noekkel(p) not in sett]
         for p in ferske:
             sett.add(noekkel(p))
         nye.extend(ferske)
-        print(f"  {codespace:4} {navn:22} {len(poster):4} aktive, {len(ferske):3} nye")
+        tog = sum(1 for p in poster if (p.get("deltaker") or "") in TOGSELSKAP)
+        print(f"  {len(poster)} aktive ({tog} tog), {len(ferske)} nye")
 
-    if feil == len(CODESPACES):
-        print("Alle kall feilet. Avbryter uten a skrive.", file=sys.stderr)
+    if feil:
+        print("Henting feilet. Avbryter uten a skrive.", file=sys.stderr)
         return 1
 
     if nye:
