@@ -2,9 +2,15 @@ name: samle
 
 on:
   schedule:
+    # Fyrer ofte, men GitHub kjører schedule etter kapasitet og dropper det
+    # meste — målt til 6–15 kjøringer i døgnet, ikke 144. Derfor looper hver
+    # kjøring internt i fem timer i stedet for å hente én gang. Cronen er nå
+    # bare en tenner: den starter en ny kjede når den forrige er ferdig.
     - cron: "*/10 * * * *"
   workflow_dispatch: {}
 
+# Aldri to samtidig. En fyring mens en kjøring pågår havner i kø og starter
+# rett etterpå — det er slik dekningen blir sammenhengende.
 concurrency:
   group: samle
   cancel-in-progress: false
@@ -15,7 +21,8 @@ permissions:
 jobs:
   samle:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # GitHub tillater 6 timer per jobb. Vi looper i 5 og lar resten være margin.
+    timeout-minutes: 340
     steps:
       - uses: actions/checkout@v5
 
@@ -23,37 +30,46 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Hent avviksmeldinger
+      - name: Samle i fem timer
         env:
           ET_CLIENT_NAME: parole-togunnskyldninger
-        run: python samle.py
-
-      - name: Commit hvis noe nytt
+          RUNDER: "60"
+          PAUSE: "300"
         run: |
-          set -euo pipefail
+          # Bevisst uten -e: en feilet runde skal ikke drepe fem timers innsamling.
+          set -uo pipefail
+
           git config user.name  "togunnskyldninger"
           git config user.email "actions@users.noreply.github.com"
 
-          # git diff ser IKKE utsporede filer. Nye maanedsfiler og
-          # sammendrag.json er nettopp det. Derfor: add foerst, sjekk etterpaa.
-          git add -A
-
-          if git diff --cached --quiet; then
-            echo "Ingenting nytt. Ingen commit."
-            exit 0
-          fi
-
-          antall=$(git diff --cached --numstat -- data | awk '{s+=$1} END {print s+0}')
-          git commit -m "${antall} nye meldinger"
-
-          for forsok in 1 2 3; do
-            if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" \
-               && git push origin "HEAD:${GITHUB_REF_NAME}"; then
-              echo "Pushet paa forsoek ${forsok}."
-              exit 0
+          lagre() {
+            git add -A
+            if ! git diff --cached --quiet; then
+              antall=$(git diff --cached --numstat -- data | awk '{s+=$1} END {print s+0}')
+              git commit -q -m "${antall} nye meldinger"
             fi
-            echo "Push feilet (forsoek ${forsok}), proever igjen..."
-            sleep 5
+
+            # Push også commits fra en tidligere runde der pushen feilet,
+            # ellers ville de forsvunnet med runneren. Bruker eksplisitt
+            # origin-ref, ikke @{u}: mangler upstream-sporing gir @{u} en feil,
+            # og da ville vi stilltiende sluttet å pushe. Ved tvil: push.
+            ubetalt=$(git rev-list --count "origin/${GITHUB_REF_NAME}..HEAD" 2>/dev/null || echo 1)
+            [ "${ubetalt}" -eq 0 ] && return 0
+
+            for forsok in 1 2 3; do
+              if git pull -q --rebase --autostash origin "${GITHUB_REF_NAME}" \
+                 && git push -q origin "HEAD:${GITHUB_REF_NAME}"; then
+                return 0
+              fi
+              sleep 5
+            done
+            echo "::warning::push feilet, ${ubetalt} commit(s) venter til neste runde"
+          }
+
+          for runde in $(seq 1 "${RUNDER}"); do
+            echo "--- runde ${runde}/${RUNDER}  $(date -u +%H:%M:%S)Z ---"
+            python samle.py || echo "::warning::henting feilet i runde ${runde}"
+            lagre
+            [ "${runde}" -lt "${RUNDER}" ] && sleep "${PAUSE}"
           done
-          echo "Klarte ikke aa pushe etter 3 forsoek." >&2
-          exit 1
+          echo "Ferdig etter ${RUNDER} runder."
