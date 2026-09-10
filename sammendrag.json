@@ -1,20 +1,20 @@
 {
-  "oppdatert": "2026-09-10T13:48:34+00:00",
-  "antall_situasjoner": 1327,
-  "antall_rader": 1343,
+  "oppdatert": "2026-09-10T13:53:37+00:00",
+  "antall_situasjoner": 1335,
+  "antall_rader": 1352,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-09-10T13:48:34+00:00",
+  "sist_sett": "2026-09-10T13:53:37+00:00",
   "tapte_vogner": 369,
   "uten_oppgitt_grunn": 9,
   "kun_informasjon": 68,
   "per_selskap": {
     "RUT": 356,
-    "NSB": 231,
-    "GCO": 230,
+    "NSB": 232,
+    "GCO": 232,
     "SKY": 100,
-    "ATB": 96,
-    "MOR": 84,
-    "KOL": 45,
+    "ATB": 97,
+    "MOR": 85,
+    "KOL": 48,
     "TEL": 33,
     "TRO": 32,
     "VYB": 32,
@@ -33,7 +33,7 @@
   "paavirkning": {
     "faerre_vogner": 106,
     "innstilt": 31,
-    "forsinket": 29,
+    "forsinket": 30,
     "buss_for_tog": 7
   },
   "uten_grunn_per_paavirkning": {
@@ -42,7 +42,7 @@
   "arsaker_uplanlagt": {
     "vi mangler et togsett": 110,
     "strømproblemer": 10,
-    "en tidligere stans": 8,
+    "en tidligere stans": 9,
     "andre tog på strekningen er forsinket": 6,
     "togsettet vi trenger er forsinket": 4,
     "toget er forsinket": 3,
@@ -52,8 +52,7 @@
     "et kjøretøy sperrer sporet": 1,
     "vedlikehold": 1,
     "et tog sperrer sporet": 1,
-    "vi mangler personell": 1,
-    "vi venter på personell": 1
+    "vi mangler personell": 1
   },
   "arsaker_planlagt": {
     "vedlikeholdsarbeid": 5
