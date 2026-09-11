@@ -1,19 +1,19 @@
 {
-  "oppdatert": "2026-09-11T18:41:17+00:00",
-  "antall_situasjoner": 2254,
-  "antall_rader": 2352,
+  "oppdatert": "2026-09-11T18:56:23+00:00",
+  "antall_situasjoner": 2260,
+  "antall_rader": 2358,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-09-11T18:41:17+00:00",
+  "sist_sett": "2026-09-11T18:56:23+00:00",
   "tapte_vogner": 626,
   "uten_oppgitt_grunn": 21,
-  "kun_informasjon": 165,
+  "kun_informasjon": 166,
   "per_selskap": {
     "RUT": 560,
     "GCO": 503,
-    "NSB": 435,
+    "NSB": 436,
     "SKY": 154,
-    "ATB": 149,
-    "MOR": 129,
+    "ATB": 150,
+    "MOR": 133,
     "KOL": 69,
     "TRO": 36,
     "TEL": 36,
@@ -54,9 +54,9 @@
     "en signalfeil": 7,
     "toget er forsinket": 6,
     "vi mangler personell": 5,
+    "et tog sperrer sporet": 2,
     "et kjøretøy sperrer sporet": 1,
-    "vedlikehold": 1,
-    "et tog sperrer sporet": 1
+    "vedlikehold": 1
   },
   "arsaker_planlagt": {
     "vedlikeholdsarbeid": 5
