@@ -1,20 +1,20 @@
 {
-  "oppdatert": "2026-09-13T13:33:51+00:00",
-  "antall_situasjoner": 3355,
-  "antall_rader": 3536,
+  "oppdatert": "2026-09-13T13:38:54+00:00",
+  "antall_situasjoner": 3359,
+  "antall_rader": 3540,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-09-13T13:33:51+00:00",
-  "tapte_vogner": 626,
+  "sist_sett": "2026-09-13T13:38:54+00:00",
+  "tapte_vogner": 636,
   "uten_oppgitt_grunn": 29,
-  "kun_informasjon": 418,
+  "kun_informasjon": 420,
   "per_selskap": {
     "GCO": 843,
-    "NSB": 823,
+    "NSB": 826,
     "RUT": 682,
     "MOR": 235,
     "SKY": 166,
     "ATB": 157,
-    "VYG": 109,
+    "VYG": 110,
     "KOL": 89,
     "TEL": 44,
     "TRO": 42,
@@ -35,7 +35,7 @@
   },
   "paavirkning": {
     "innstilt": 187,
-    "faerre_vogner": 180,
+    "faerre_vogner": 182,
     "buss_for_tog": 89,
     "forsinket": 77
   },
@@ -44,7 +44,7 @@
     "faerre_vogner": 1
   },
   "arsaker_uplanlagt": {
-    "vi mangler et togsett": 192,
+    "vi mangler et togsett": 194,
     "arbeid på sporet": 98,
     "strømproblemer": 18,
     "en tidligere stans": 17,
@@ -58,7 +58,8 @@
     "bane nor jobber på sporet": 2,
     "et kjøretøy sperrer sporet": 1,
     "vedlikehold": 1,
-    "et tog sperrer sporet": 1
+    "et tog sperrer sporet": 1,
+    "feil på en sporveksel": 1
   },
   "arsaker_planlagt": {
     "vedlikeholdsarbeid": 5
