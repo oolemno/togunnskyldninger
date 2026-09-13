@@ -1,20 +1,20 @@
 {
-  "oppdatert": "2026-09-13T15:09:40+00:00",
-  "antall_situasjoner": 3408,
-  "antall_rader": 3590,
+  "oppdatert": "2026-09-13T15:14:43+00:00",
+  "antall_situasjoner": 3423,
+  "antall_rader": 3606,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-09-13T15:09:40+00:00",
+  "sist_sett": "2026-09-13T15:14:42+00:00",
   "tapte_vogner": 636,
   "uten_oppgitt_grunn": 29,
-  "kun_informasjon": 428,
+  "kun_informasjon": 431,
   "per_selskap": {
-    "GCO": 872,
-    "NSB": 836,
+    "GCO": 881,
+    "NSB": 840,
     "RUT": 686,
-    "MOR": 236,
+    "MOR": 237,
     "SKY": 167,
     "ATB": 157,
-    "VYG": 112,
+    "VYG": 113,
     "KOL": 90,
     "TEL": 44,
     "TRO": 43,
@@ -36,8 +36,8 @@
   "paavirkning": {
     "innstilt": 187,
     "faerre_vogner": 182,
-    "buss_for_tog": 92,
-    "forsinket": 78
+    "buss_for_tog": 93,
+    "forsinket": 79
   },
   "uten_grunn_per_paavirkning": {
     "innstilt": 28,
