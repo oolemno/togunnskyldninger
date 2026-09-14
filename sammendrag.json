@@ -1,14 +1,14 @@
 {
-  "oppdatert": "2026-09-14T09:17:53+00:00",
-  "antall_situasjoner": 3950,
-  "antall_rader": 4147,
+  "oppdatert": "2026-09-14T09:22:56+00:00",
+  "antall_situasjoner": 3952,
+  "antall_rader": 4150,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-09-14T09:17:53+00:00",
+  "sist_sett": "2026-09-14T09:22:56+00:00",
   "tapte_vogner": 926,
-  "uten_oppgitt_grunn": 31,
+  "uten_oppgitt_grunn": 32,
   "kun_informasjon": 558,
   "per_selskap": {
-    "NSB": 1103,
+    "NSB": 1104,
     "GCO": 984,
     "RUT": 728,
     "MOR": 248,
@@ -22,7 +22,7 @@
     "VYB": 32,
     "VOT": 26,
     "INN": 21,
-    "GOA": 16,
+    "GOA": 17,
     "BRA": 10,
     "NBU": 10,
     "AKT": 7,
@@ -35,18 +35,18 @@
   },
   "paavirkning": {
     "faerre_vogner": 259,
-    "innstilt": 229,
+    "innstilt": 230,
     "buss_for_tog": 131,
-    "forsinket": 95
+    "forsinket": 96
   },
   "uten_grunn_per_paavirkning": {
-    "innstilt": 28,
+    "innstilt": 29,
     "faerre_vogner": 3
   },
   "arsaker_uplanlagt": {
     "vi mangler et togsett": 266,
     "arbeid på sporet": 137,
-    "en tidligere stans": 21,
+    "en tidligere stans": 22,
     "strømproblemer": 18,
     "en teknisk feil med toget": 17,
     "togsettet vi trenger er forsinket": 17,
@@ -56,10 +56,10 @@
     "toget er forsinket": 8,
     "vi mangler personell": 8,
     "bane nor jobber på sporet": 2,
-    "vi venter på personell": 2,
     "et kjøretøy sperrer sporet": 1,
     "vedlikehold": 1,
-    "et tog sperrer sporet": 1
+    "et tog sperrer sporet": 1,
+    "vi venter på personell": 1
   },
   "arsaker_planlagt": {
     "vedlikeholdsarbeid": 5
