@@ -1,19 +1,19 @@
 {
-  "oppdatert": "2026-09-15T15:33:09+00:00",
-  "antall_situasjoner": 5185,
-  "antall_rader": 5448,
+  "oppdatert": "2026-09-15T15:38:12+00:00",
+  "antall_situasjoner": 5191,
+  "antall_rader": 5456,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-09-15T15:33:08+00:00",
+  "sist_sett": "2026-09-15T15:38:12+00:00",
   "tapte_vogner": 1323,
   "uten_oppgitt_grunn": 52,
-  "kun_informasjon": 789,
+  "kun_informasjon": 790,
   "per_selskap": {
-    "NSB": 1429,
-    "GCO": 1311,
-    "RUT": 897,
+    "NSB": 1432,
+    "GCO": 1312,
+    "RUT": 898,
     "MOR": 363,
     "VYG": 255,
-    "SKY": 246,
+    "SKY": 247,
     "ATB": 211,
     "KOL": 144,
     "TRO": 60,
@@ -37,7 +37,7 @@
     "faerre_vogner": 365,
     "innstilt": 287,
     "buss_for_tog": 159,
-    "forsinket": 131
+    "forsinket": 133
   },
   "uten_grunn_per_paavirkning": {
     "innstilt": 46,
@@ -54,13 +54,13 @@
     "vi mangler personell": 19,
     "strømproblemer": 18,
     "andre tog på strekningen er forsinket": 17,
-    "toget er forsinket": 13,
+    "toget er forsinket": 14,
     "vi venter på personell": 3,
     "et tog sperrer sporet": 2,
     "bane nor jobber på sporet": 2,
+    "en brann ved sporet": 2,
     "et kjøretøy sperrer sporet": 1,
-    "vedlikehold": 1,
-    "en brann ved sporet": 1
+    "vedlikehold": 1
   },
   "arsaker_planlagt": {
     "vedlikeholdsarbeid": 5
