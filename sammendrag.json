@@ -1,15 +1,15 @@
 {
-  "oppdatert": "2026-09-16T04:44:23+00:00",
-  "antall_situasjoner": 5483,
-  "antall_rader": 5796,
+  "oppdatert": "2026-09-16T04:49:26+00:00",
+  "antall_situasjoner": 5488,
+  "antall_rader": 5802,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-09-16T04:44:23+00:00",
+  "sist_sett": "2026-09-16T04:49:26+00:00",
   "tapte_vogner": 1531,
   "uten_oppgitt_grunn": 54,
   "kun_informasjon": 809,
   "per_selskap": {
-    "NSB": 1515,
-    "GCO": 1436,
+    "NSB": 1516,
+    "GCO": 1440,
     "RUT": 916,
     "MOR": 400,
     "SKY": 261,
@@ -37,7 +37,7 @@
     "faerre_vogner": 425,
     "innstilt": 292,
     "buss_for_tog": 159,
-    "forsinket": 138
+    "forsinket": 139
   },
   "uten_grunn_per_paavirkning": {
     "innstilt": 46,
@@ -46,7 +46,7 @@
   "arsaker_uplanlagt": {
     "vi mangler et togsett": 430,
     "arbeid på sporet": 139,
-    "en tidligere stans": 30,
+    "en tidligere stans": 31,
     "togsettet vi trenger er forsinket": 29,
     "en teknisk feil med toget": 26,
     "en signalfeil": 25,
@@ -55,7 +55,7 @@
     "strømproblemer": 18,
     "andre tog på strekningen er forsinket": 17,
     "toget er forsinket": 14,
-    "vi venter på personell": 4,
+    "vi venter på personell": 3,
     "et tog sperrer sporet": 2,
     "bane nor jobber på sporet": 2,
     "en brann ved sporet": 2,
