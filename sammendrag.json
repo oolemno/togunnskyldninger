@@ -1,18 +1,18 @@
 {
-  "oppdatert": "2026-09-16T13:34:19+00:00",
-  "antall_situasjoner": 5892,
-  "antall_rader": 6222,
+  "oppdatert": "2026-09-16T13:39:22+00:00",
+  "antall_situasjoner": 5898,
+  "antall_rader": 6229,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-09-16T13:34:19+00:00",
-  "tapte_vogner": 1681,
+  "sist_sett": "2026-09-16T13:39:22+00:00",
+  "tapte_vogner": 1685,
   "uten_oppgitt_grunn": 62,
-  "kun_informasjon": 847,
+  "kun_informasjon": 848,
   "per_selskap": {
-    "NSB": 1603,
-    "GCO": 1543,
+    "NSB": 1607,
+    "GCO": 1544,
     "RUT": 1004,
     "MOR": 433,
-    "SKY": 301,
+    "SKY": 302,
     "VYG": 269,
     "ATB": 220,
     "KOL": 169,
@@ -34,10 +34,10 @@
     "SJN": 1
   },
   "paavirkning": {
-    "faerre_vogner": 465,
-    "innstilt": 309,
-    "buss_for_tog": 161,
-    "forsinket": 142
+    "faerre_vogner": 466,
+    "innstilt": 308,
+    "buss_for_tog": 162,
+    "forsinket": 144
   },
   "uten_grunn_per_paavirkning": {
     "innstilt": 50,
@@ -52,14 +52,14 @@
     "vi mangler personell": 26,
     "en signalfeil": 25,
     "en feil på sporet": 20,
+    "andre tog på strekningen er forsinket": 18,
     "strømproblemer": 18,
-    "andre tog på strekningen er forsinket": 17,
     "toget er forsinket": 14,
     "vi venter på personell": 3,
+    "feil på en sporveksel": 3,
     "et tog sperrer sporet": 2,
     "bane nor jobber på sporet": 2,
     "en brann ved sporet": 2,
-    "feil på en sporveksel": 2,
     "et kjøretøy sperrer sporet": 1
   },
   "arsaker_planlagt": {
