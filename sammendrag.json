@@ -1,9 +1,9 @@
 {
-  "oppdatert": "2026-09-19T18:39:35+00:00",
-  "antall_situasjoner": 8438,
-  "antall_rader": 8828,
+  "oppdatert": "2026-09-19T18:44:38+00:00",
+  "antall_situasjoner": 8439,
+  "antall_rader": 8829,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-09-19T18:39:35+00:00",
+  "sist_sett": "2026-09-19T18:44:38+00:00",
   "tapte_vogner": 2372,
   "uten_oppgitt_grunn": 75,
   "kun_informasjon": 1132,
@@ -29,7 +29,7 @@
     "NBU": 15,
     "BRA": 14,
     "FJL": 5,
-    "SJN": 4,
+    "SJN": 5,
     "OST": 3,
     "BFO": 2,
     "VIL": 1
@@ -38,7 +38,7 @@
     "faerre_vogner": 635,
     "innstilt": 586,
     "forsinket": 211,
-    "buss_for_tog": 187
+    "buss_for_tog": 188
   },
   "uten_grunn_per_paavirkning": {
     "innstilt": 62,
