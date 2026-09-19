@@ -1,12 +1,12 @@
 {
-  "oppdatert": "2026-09-19T15:27:58+00:00",
-  "antall_situasjoner": 8349,
-  "antall_rader": 8739,
+  "oppdatert": "2026-09-19T15:33:01+00:00",
+  "antall_situasjoner": 8350,
+  "antall_rader": 8740,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-09-19T15:27:58+00:00",
+  "sist_sett": "2026-09-19T15:33:01+00:00",
   "tapte_vogner": 2372,
   "uten_oppgitt_grunn": 75,
-  "kun_informasjon": 1127,
+  "kun_informasjon": 1128,
   "per_selskap": {
     "NSB": 2392,
     "GCO": 2303,
@@ -30,7 +30,7 @@
     "BRA": 14,
     "FJL": 5,
     "OST": 3,
-    "SJN": 2,
+    "SJN": 3,
     "BFO": 2,
     "VIL": 1
   },
