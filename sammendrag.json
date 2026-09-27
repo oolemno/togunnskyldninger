@@ -1,9 +1,9 @@
 {
-  "oppdatert": "2026-09-27T06:28:59+00:00",
+  "oppdatert": "2026-09-27T06:39:05+00:00",
   "antall_situasjoner": 12813,
-  "antall_rader": 13424,
+  "antall_rader": 13425,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-09-27T06:28:58+00:00",
+  "sist_sett": "2026-09-27T06:39:04+00:00",
   "tapte_vogner": 3062,
   "uten_oppgitt_grunn": 129,
   "kun_informasjon": 1555,
@@ -60,9 +60,9 @@
     "strømproblemer": 20,
     "et tog sperrer sporet": 19,
     "vi venter på personell": 11,
-    "bane nor jobber på sporet": 2,
     "en brann ved sporet": 2,
     "et kjøretøy sperrer sporet": 1,
+    "bane nor jobber på sporet": 1,
     "foregående tog er innstilt": 1
   },
   "arsaker_planlagt": {
