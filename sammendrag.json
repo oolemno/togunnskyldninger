@@ -1,15 +1,15 @@
 {
-  "oppdatert": "2026-09-30T06:58:11+00:00",
-  "antall_situasjoner": 14807,
-  "antall_rader": 15532,
+  "oppdatert": "2026-09-30T07:03:15+00:00",
+  "antall_situasjoner": 14811,
+  "antall_rader": 15536,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-09-30T06:58:10+00:00",
+  "sist_sett": "2026-09-30T07:03:15+00:00",
   "tapte_vogner": 3370,
-  "uten_oppgitt_grunn": 152,
-  "kun_informasjon": 1732,
+  "uten_oppgitt_grunn": 153,
+  "kun_informasjon": 1733,
   "per_selskap": {
-    "GCO": 4825,
-    "NSB": 3640,
+    "GCO": 4826,
+    "NSB": 3643,
     "RUT": 2228,
     "MOR": 1064,
     "SKY": 731,
@@ -35,13 +35,13 @@
     "VIL": 1
   },
   "paavirkning": {
-    "innstilt": 926,
+    "innstilt": 928,
     "faerre_vogner": 900,
     "forsinket": 389,
     "buss_for_tog": 258
   },
   "uten_grunn_per_paavirkning": {
-    "innstilt": 126,
+    "innstilt": 127,
     "faerre_vogner": 26
   },
   "arsaker_uplanlagt": {
@@ -56,7 +56,7 @@
     "andre tog på strekningen er forsinket": 61,
     "en feil på sporet": 55,
     "feil på en sporveksel": 43,
-    "toget er forsinket": 41,
+    "toget er forsinket": 42,
     "strømproblemer": 27,
     "et tog sperrer sporet": 19,
     "vi venter på personell": 11,
