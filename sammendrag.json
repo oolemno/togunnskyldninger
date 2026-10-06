@@ -1,18 +1,18 @@
 {
-  "oppdatert": "2026-10-06T04:48:01+00:00",
-  "antall_situasjoner": 18495,
-  "antall_rader": 19327,
+  "oppdatert": "2026-10-06T04:53:04+00:00",
+  "antall_situasjoner": 18506,
+  "antall_rader": 19338,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-10-06T04:48:01+00:00",
+  "sist_sett": "2026-10-06T04:53:04+00:00",
   "tapte_vogner": 3700,
-  "uten_oppgitt_grunn": 202,
-  "kun_informasjon": 1986,
+  "uten_oppgitt_grunn": 203,
+  "kun_informasjon": 1987,
   "per_selskap": {
-    "GCO": 6360,
-    "NSB": 4214,
-    "RUT": 2789,
+    "GCO": 6364,
+    "NSB": 4217,
+    "RUT": 2792,
     "MOR": 1361,
-    "SKY": 886,
+    "SKY": 887,
     "KOL": 776,
     "ATB": 611,
     "VYG": 376,
@@ -35,13 +35,13 @@
     "VIL": 1
   },
   "paavirkning": {
-    "innstilt": 1103,
+    "innstilt": 1105,
     "faerre_vogner": 988,
     "forsinket": 464,
     "buss_for_tog": 318
   },
   "uten_grunn_per_paavirkning": {
-    "innstilt": 174,
+    "innstilt": 175,
     "faerre_vogner": 28
   },
   "arsaker_uplanlagt": {
@@ -55,7 +55,7 @@
     "togsettet vi trenger er forsinket": 78,
     "andre tog på strekningen er forsinket": 70,
     "en feil på sporet": 56,
-    "toget er forsinket": 49,
+    "toget er forsinket": 50,
     "feil på en sporveksel": 43,
     "strømproblemer": 27,
     "et tog sperrer sporet": 21,
