@@ -1,17 +1,17 @@
 {
-  "oppdatert": "2026-10-08T18:36:36+00:00",
-  "antall_situasjoner": 20772,
-  "antall_rader": 21699,
+  "oppdatert": "2026-10-08T18:41:38+00:00",
+  "antall_situasjoner": 20776,
+  "antall_rader": 21704,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-10-08T18:36:35+00:00",
+  "sist_sett": "2026-10-08T18:41:38+00:00",
   "tapte_vogner": 4006,
   "uten_oppgitt_grunn": 238,
-  "kun_informasjon": 2235,
+  "kun_informasjon": 2236,
   "per_selskap": {
-    "GCO": 7185,
-    "NSB": 4592,
+    "GCO": 7186,
+    "NSB": 4594,
     "RUT": 3196,
-    "MOR": 1532,
+    "MOR": 1533,
     "SKY": 1005,
     "KOL": 847,
     "ATB": 667,
@@ -35,7 +35,7 @@
     "VIL": 1
   },
   "paavirkning": {
-    "innstilt": 1224,
+    "innstilt": 1225,
     "faerre_vogner": 1072,
     "forsinket": 513,
     "buss_for_tog": 345
@@ -46,7 +46,7 @@
   },
   "arsaker_uplanlagt": {
     "vi mangler et togsett": 1054,
-    "vi mangler personell": 243,
+    "vi mangler personell": 242,
     "en signalfeil": 198,
     "streik": 198,
     "arbeid på sporet": 153,
@@ -58,8 +58,8 @@
     "toget er forsinket": 54,
     "feil på en sporveksel": 44,
     "strømproblemer": 27,
+    "en feil i kommunikasjonssystemet": 22,
     "et tog sperrer sporet": 21,
-    "en feil i kommunikasjonssystemet": 21,
     "vi venter på personell": 17,
     "en brann ved sporet": 2,
     "et kjøretøy sperrer sporet": 1,
