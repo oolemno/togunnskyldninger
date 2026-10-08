@@ -1,9 +1,9 @@
 {
-  "oppdatert": "2026-10-08T12:03:54+00:00",
-  "antall_situasjoner": 20346,
-  "antall_rader": 21264,
+  "oppdatert": "2026-10-08T12:08:57+00:00",
+  "antall_situasjoner": 20348,
+  "antall_rader": 21266,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-10-08T12:03:53+00:00",
+  "sist_sett": "2026-10-08T12:08:56+00:00",
   "tapte_vogner": 3981,
   "uten_oppgitt_grunn": 234,
   "kun_informasjon": 2176,
@@ -11,7 +11,7 @@
     "GCO": 7069,
     "NSB": 4540,
     "RUT": 3035,
-    "MOR": 1514,
+    "MOR": 1515,
     "SKY": 993,
     "KOL": 843,
     "ATB": 667,
@@ -31,7 +31,7 @@
     "NBU": 22,
     "FJL": 14,
     "OST": 7,
-    "BFO": 2,
+    "BFO": 3,
     "VIL": 1
   },
   "paavirkning": {
