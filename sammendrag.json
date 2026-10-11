@@ -1,15 +1,15 @@
 {
-  "oppdatert": "2026-10-11T14:26:10+00:00",
-  "antall_situasjoner": 22204,
-  "antall_rader": 23267,
+  "oppdatert": "2026-10-11T14:31:13+00:00",
+  "antall_situasjoner": 22206,
+  "antall_rader": 23270,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-10-11T14:26:10+00:00",
+  "sist_sett": "2026-10-11T14:31:13+00:00",
   "tapte_vogner": 4114,
   "uten_oppgitt_grunn": 253,
   "kun_informasjon": 2434,
   "per_selskap": {
     "GCO": 7833,
-    "NSB": 4877,
+    "NSB": 4879,
     "RUT": 3343,
     "MOR": 1601,
     "SKY": 1059,
@@ -37,8 +37,8 @@
   "paavirkning": {
     "innstilt": 1351,
     "faerre_vogner": 1101,
-    "forsinket": 549,
-    "buss_for_tog": 373
+    "forsinket": 550,
+    "buss_for_tog": 374
   },
   "uten_grunn_per_paavirkning": {
     "innstilt": 221,
@@ -52,7 +52,7 @@
     "streik": 198,
     "en tidligere stans": 156,
     "en teknisk feil med toget": 104,
-    "togsettet vi trenger er forsinket": 100,
+    "togsettet vi trenger er forsinket": 101,
     "andre tog på strekningen er forsinket": 86,
     "en feil på sporet": 62,
     "toget er forsinket": 55,
