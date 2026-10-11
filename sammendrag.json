@@ -1,11 +1,11 @@
 {
-  "oppdatert": "2026-10-11T04:28:58+00:00",
+  "oppdatert": "2026-10-11T04:49:06+00:00",
   "antall_situasjoner": 21917,
-  "antall_rader": 22921,
+  "antall_rader": 22922,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-10-11T04:28:58+00:00",
+  "sist_sett": "2026-10-11T04:49:06+00:00",
   "tapte_vogner": 4109,
-  "uten_oppgitt_grunn": 247,
+  "uten_oppgitt_grunn": 248,
   "kun_informasjon": 2366,
   "per_selskap": {
     "GCO": 7749,
@@ -41,7 +41,7 @@
     "buss_for_tog": 369
   },
   "uten_grunn_per_paavirkning": {
-    "innstilt": 215,
+    "innstilt": 216,
     "faerre_vogner": 32
   },
   "arsaker_uplanlagt": {
@@ -68,8 +68,7 @@
     "det er dyr i sporet": 1,
     "feil på en kjøreledning": 1,
     "avstigning av passasjer": 1,
-    "vi må bytte personell": 1,
-    "en jordfeil": 1
+    "vi må bytte personell": 1
   },
   "arsaker_planlagt": {
     "vedlikeholdsarbeid": 5
