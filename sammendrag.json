@@ -1,9 +1,9 @@
 {
-  "oppdatert": "2026-10-14T05:19:37+00:00",
-  "antall_situasjoner": 25066,
-  "antall_rader": 26385,
+  "oppdatert": "2026-10-14T05:24:42+00:00",
+  "antall_situasjoner": 25067,
+  "antall_rader": 26386,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-10-14T05:19:37+00:00",
+  "sist_sett": "2026-10-14T05:24:41+00:00",
   "tapte_vogner": 4312,
   "uten_oppgitt_grunn": 268,
   "kun_informasjon": 3393,
@@ -32,8 +32,8 @@
     "FJL": 15,
     "OST": 8,
     "BFO": 3,
-    "VIL": 1,
-    "VKT": 1
+    "VKT": 2,
+    "VIL": 1
   },
   "paavirkning": {
     "innstilt": 1504,
