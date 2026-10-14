@@ -1,9 +1,9 @@
 {
-  "oppdatert": "2026-10-14T05:04:26+00:00",
-  "antall_situasjoner": 25060,
-  "antall_rader": 26379,
+  "oppdatert": "2026-10-14T05:14:33+00:00",
+  "antall_situasjoner": 25062,
+  "antall_rader": 26381,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-10-14T05:04:26+00:00",
+  "sist_sett": "2026-10-14T05:14:33+00:00",
   "tapte_vogner": 4312,
   "uten_oppgitt_grunn": 268,
   "kun_informasjon": 3393,
@@ -15,7 +15,7 @@
     "SKY": 1175,
     "VYG": 1166,
     "KOL": 964,
-    "ATB": 746,
+    "ATB": 747,
     "TRO": 318,
     "FLT": 307,
     "NOR": 241,
@@ -32,7 +32,8 @@
     "FJL": 15,
     "OST": 8,
     "BFO": 3,
-    "VIL": 1
+    "VIL": 1,
+    "VKT": 1
   },
   "paavirkning": {
     "innstilt": 1504,
