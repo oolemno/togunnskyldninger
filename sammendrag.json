@@ -1,19 +1,19 @@
 {
-  "oppdatert": "2026-10-18T11:32:11+00:00",
-  "antall_situasjoner": 27636,
-  "antall_rader": 29285,
+  "oppdatert": "2026-10-18T11:37:15+00:00",
+  "antall_situasjoner": 27641,
+  "antall_rader": 29290,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-10-18T11:32:11+00:00",
+  "sist_sett": "2026-10-18T11:37:15+00:00",
   "tapte_vogner": 4668,
   "uten_oppgitt_grunn": 292,
-  "kun_informasjon": 3642,
+  "kun_informasjon": 3643,
   "per_selskap": {
-    "GCO": 9727,
-    "NSB": 5844,
+    "GCO": 9728,
+    "NSB": 5847,
     "RUT": 3971,
     "MOR": 1930,
     "VYG": 1273,
-    "SKY": 1271,
+    "SKY": 1272,
     "KOL": 1081,
     "ATB": 778,
     "TRO": 343,
@@ -36,7 +36,7 @@
     "VIL": 1
   },
   "paavirkning": {
-    "innstilt": 1617,
+    "innstilt": 1619,
     "faerre_vogner": 1261,
     "forsinket": 696,
     "buss_for_tog": 451
@@ -62,6 +62,7 @@
     "strømproblemer": 28,
     "vi venter på personell": 26,
     "en feil i kommunikasjonssystemet": 24,
+    "planlagt vedlikehold på strekningen er forsinket": 3,
     "bane nor jobber på sporet": 2,
     "en brann ved sporet": 2,
     "vi må bytte personell": 2,
@@ -70,8 +71,7 @@
     "foregående tog er innstilt": 1,
     "det er dyr i sporet": 1,
     "feil på en kjøreledning": 1,
-    "avstigning av passasjer": 1,
-    "planlagt vedlikehold på strekningen er forsinket": 1
+    "avstigning av passasjer": 1
   },
   "arsaker_planlagt": {
     "vedlikeholdsarbeid": 3
