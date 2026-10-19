@@ -1,25 +1,25 @@
 {
-  "oppdatert": "2026-10-19T11:47:49+00:00",
-  "antall_situasjoner": 28451,
-  "antall_rader": 30127,
+  "oppdatert": "2026-10-19T11:52:54+00:00",
+  "antall_situasjoner": 28470,
+  "antall_rader": 30153,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-10-19T11:47:48+00:00",
+  "sist_sett": "2026-10-19T11:52:53+00:00",
   "tapte_vogner": 4931,
-  "uten_oppgitt_grunn": 299,
-  "kun_informasjon": 3697,
+  "uten_oppgitt_grunn": 300,
+  "kun_informasjon": 3714,
   "per_selskap": {
     "GCO": 10084,
-    "NSB": 6021,
+    "NSB": 6022,
     "RUT": 4017,
-    "MOR": 1985,
+    "MOR": 1986,
     "SKY": 1300,
     "VYG": 1273,
     "KOL": 1105,
     "ATB": 786,
     "TRO": 387,
-    "NOR": 375,
-    "FLT": 325,
-    "GOA": 187,
+    "NOR": 376,
+    "FLT": 340,
+    "GOA": 188,
     "FIN": 115,
     "VOT": 81,
     "INN": 79,
@@ -36,13 +36,13 @@
     "VIL": 1
   },
   "paavirkning": {
-    "innstilt": 1656,
+    "innstilt": 1657,
     "faerre_vogner": 1331,
     "forsinket": 713,
-    "buss_for_tog": 457
+    "buss_for_tog": 456
   },
   "uten_grunn_per_paavirkning": {
-    "innstilt": 266,
+    "innstilt": 267,
     "faerre_vogner": 33
   },
   "arsaker_uplanlagt": {
@@ -62,7 +62,7 @@
     "strømproblemer": 28,
     "vi venter på personell": 26,
     "en feil i kommunikasjonssystemet": 24,
-    "en jordfeil": 20,
+    "en jordfeil": 21,
     "bane nor jobber på sporet": 2,
     "en brann ved sporet": 2,
     "vi må bytte personell": 2,
