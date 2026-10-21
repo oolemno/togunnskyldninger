@@ -1,17 +1,17 @@
 {
-  "oppdatert": "2026-10-21T03:08:58+00:00",
-  "antall_situasjoner": 29653,
-  "antall_rader": 31370,
+  "oppdatert": "2026-10-21T03:14:02+00:00",
+  "antall_situasjoner": 29657,
+  "antall_rader": 31375,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-10-21T03:08:58+00:00",
+  "sist_sett": "2026-10-21T03:14:02+00:00",
   "tapte_vogner": 5355,
   "uten_oppgitt_grunn": 315,
   "kun_informasjon": 3790,
   "per_selskap": {
-    "GCO": 10576,
+    "GCO": 10578,
     "NSB": 6226,
     "RUT": 4159,
-    "MOR": 2076,
+    "MOR": 2077,
     "SKY": 1341,
     "VYG": 1287,
     "KOL": 1170,
@@ -19,7 +19,7 @@
     "TRO": 410,
     "NOR": 394,
     "FLT": 346,
-    "GOA": 212,
+    "GOA": 213,
     "FIN": 128,
     "VOT": 89,
     "TEL": 83,
@@ -39,7 +39,7 @@
     "innstilt": 1689,
     "faerre_vogner": 1441,
     "forsinket": 737,
-    "buss_for_tog": 462
+    "buss_for_tog": 463
   },
   "uten_grunn_per_paavirkning": {
     "innstilt": 281,
@@ -74,6 +74,6 @@
     "avstigning av passasjer": 1
   },
   "arsaker_planlagt": {
-    "vedlikeholdsarbeid": 3
+    "vedlikeholdsarbeid": 4
   }
 }
