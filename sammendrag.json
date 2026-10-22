@@ -1,11 +1,11 @@
 {
-  "oppdatert": "2026-10-22T22:37:51+00:00",
-  "antall_situasjoner": 31166,
-  "antall_rader": 32965,
+  "oppdatert": "2026-10-22T22:58:01+00:00",
+  "antall_situasjoner": 31167,
+  "antall_rader": 32966,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-10-22T22:37:51+00:00",
+  "sist_sett": "2026-10-22T22:58:00+00:00",
   "tapte_vogner": 5960,
-  "uten_oppgitt_grunn": 323,
+  "uten_oppgitt_grunn": 324,
   "kun_informasjon": 3912,
   "per_selskap": {
     "GCO": 11086,
@@ -19,7 +19,7 @@
     "TRO": 425,
     "NOR": 425,
     "FLT": 373,
-    "GOA": 223,
+    "GOA": 224,
     "FIN": 130,
     "VOT": 92,
     "INN": 85,
@@ -37,13 +37,13 @@
   },
   "paavirkning": {
     "innstilt": 1729,
-    "faerre_vogner": 1595,
+    "faerre_vogner": 1596,
     "forsinket": 791,
     "buss_for_tog": 463
   },
   "uten_grunn_per_paavirkning": {
     "innstilt": 290,
-    "faerre_vogner": 33
+    "faerre_vogner": 34
   },
   "arsaker_uplanlagt": {
     "vi mangler et togsett": 1610,
