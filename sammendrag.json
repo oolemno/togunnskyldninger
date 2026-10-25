@@ -1,14 +1,14 @@
 {
-  "oppdatert": "2026-10-25T10:26:11+00:00",
-  "antall_situasjoner": 32705,
-  "antall_rader": 34668,
+  "oppdatert": "2026-10-25T10:31:15+00:00",
+  "antall_situasjoner": 32715,
+  "antall_rader": 34678,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-10-25T10:26:11+00:00",
+  "sist_sett": "2026-10-25T10:31:15+00:00",
   "tapte_vogner": 6174,
   "uten_oppgitt_grunn": 339,
   "kun_informasjon": 4262,
   "per_selskap": {
-    "GCO": 11545,
+    "GCO": 11554,
     "NSB": 7124,
     "RUT": 4554,
     "MOR": 2324,
@@ -25,7 +25,7 @@
     "INN": 85,
     "TEL": 84,
     "AKT": 79,
-    "SJN": 54,
+    "SJN": 55,
     "BRA": 48,
     "VYB": 43,
     "NBU": 24,
@@ -39,7 +39,7 @@
     "innstilt": 1992,
     "faerre_vogner": 1643,
     "forsinket": 845,
-    "buss_for_tog": 469
+    "buss_for_tog": 470
   },
   "uten_grunn_per_paavirkning": {
     "innstilt": 306,
