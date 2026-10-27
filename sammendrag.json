@@ -1,9 +1,9 @@
 {
-  "oppdatert": "2026-10-27T03:58:48+00:00",
-  "antall_situasjoner": 33878,
-  "antall_rader": 35879,
+  "oppdatert": "2026-10-27T04:03:52+00:00",
+  "antall_situasjoner": 33879,
+  "antall_rader": 35880,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-10-27T03:58:48+00:00",
+  "sist_sett": "2026-10-27T04:03:52+00:00",
   "tapte_vogner": 6615,
   "uten_oppgitt_grunn": 347,
   "kun_informasjon": 4365,
@@ -30,7 +30,7 @@
     "VYB": 43,
     "FJL": 25,
     "NBU": 24,
-    "OST": 12,
+    "OST": 13,
     "BFO": 8,
     "VKT": 2,
     "VIL": 1
