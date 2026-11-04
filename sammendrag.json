@@ -1,9 +1,9 @@
 {
-  "oppdatert": "2026-11-04T00:26:18+00:00",
-  "antall_situasjoner": 40078,
-  "antall_rader": 42429,
+  "oppdatert": "2026-11-04T02:16:57+00:00",
+  "antall_situasjoner": 40079,
+  "antall_rader": 42430,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-11-04T00:26:17+00:00",
+  "sist_sett": "2026-11-04T02:16:57+00:00",
   "tapte_vogner": 8903,
   "uten_oppgitt_grunn": 388,
   "kun_informasjon": 5159,
@@ -25,7 +25,7 @@
     "INN": 101,
     "TEL": 91,
     "AKT": 90,
-    "SJN": 69,
+    "SJN": 70,
     "BRA": 52,
     "VYB": 44,
     "FJL": 28,
@@ -39,7 +39,7 @@
     "innstilt": 2341,
     "faerre_vogner": 2306,
     "forsinket": 1033,
-    "buss_for_tog": 606
+    "buss_for_tog": 607
   },
   "uten_grunn_per_paavirkning": {
     "innstilt": 355,
