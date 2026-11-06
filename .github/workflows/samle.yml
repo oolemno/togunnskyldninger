@@ -2,21 +2,23 @@ name: samle
 
 on:
   schedule:
-    # Fyrer ofte, men GitHub kjører schedule etter kapasitet og dropper det
-    # meste — målt til 6–15 kjøringer i døgnet, ikke 144. Derfor looper hver
-    # kjøring internt i fem timer i stedet for å hente én gang. Cronen er nå
-    # bare en tenner: den starter en ny kjede når den forrige er ferdig.
+    # Reserve. Kjedene starter hverandre selv (se «Bestill neste kjede»).
+    # Cronen trengs bare hvis kjeden brytes, for eksempel fordi en runner
+    # forsvinner. GitHub fyrer den sjelden og ujevnt, så den er ikke til å
+    # stole på alene: målt til 6 til 15 ganger i døgnet, ikke 144.
     - cron: "*/10 * * * *"
   workflow_dispatch: {}
 
-# Aldri to samtidig. En fyring mens en kjøring pågår havner i kø og starter
-# rett etterpå — det er slik dekningen blir sammenhengende.
+# Aldri to samtidig. En kjøring som bestilles mens en annen pågår, venter i
+# kø og starter rett etterpå.
 concurrency:
   group: samle
   cancel-in-progress: false
 
 permissions:
   contents: write
+  # For å kunne starte neste kjede selv.
+  actions: write
 
 jobs:
   samle:
@@ -24,7 +26,14 @@ jobs:
     # GitHub tillater 6 timer per jobb. Vi looper i 5 og lar resten være margin.
     timeout-minutes: 340
     steps:
+      # ref: main er avgjørende. Uten den sjekker checkout ut commiten fra da
+      # kjøringen ble BESTILT, ikke da den startet. En kjøring som ventet i kø
+      # mens forrige kjede pushet, startet da på gamle data, fikk konflikt ved
+      # første push og mistet fem timer. Det skjedde annenhver kjede fra
+      # oktober til 6. november 2026.
       - uses: actions/checkout@v5
+        with:
+          ref: main
 
       - uses: actions/setup-python@v6
         with:
@@ -33,6 +42,8 @@ jobs:
       - name: Samle i fem timer
         env:
           ET_CLIENT_NAME: parole-togunnskyldninger
+          GH_TOKEN: ${{ github.token }}
+          GREN: main
           RUNDER: "60"
           PAUSE: "300"
         run: |
@@ -42,34 +53,99 @@ jobs:
           git config user.name  "togunnskyldninger"
           git config user.email "actions@users.noreply.github.com"
 
-          lagre() {
-            git add -A
-            if ! git diff --cached --quiet; then
-              antall=$(git diff --cached --numstat -- data | awk '{s+=$1} END {print s+0}')
-              git commit -q -m "${antall} nye meldinger"
-            fi
+          # Rundene som faktisk ble hentet og lagret. Ligger utenfor repoet så
+          # nullstillingen i synk() ikke sletter den, og skrives inn i
+          # dekning/ sammen med neste datacommit. Slik blir det ingen egne
+          # commits for dekning midt i arkivet.
+          PULS="${RUNNER_TEMP}/puls.txt"
+          : > "${PULS}"
 
-            # Push også commits fra en tidligere runde der pushen feilet,
-            # ellers ville de forsvunnet med runneren. Bruker eksplisitt
-            # origin-ref, ikke @{u}: mangler upstream-sporing gir @{u} en feil,
-            # og da ville vi stilltiende sluttet å pushe. Ved tvil: push.
-            ubetalt=$(git rev-list --count "origin/${GITHUB_REF_NAME}..HEAD" 2>/dev/null || echo 1)
-            [ "${ubetalt}" -eq 0 ] && return 0
-
-            for forsok in 1 2 3; do
-              if git pull -q --rebase --autostash origin "${GITHUB_REF_NAME}" \
-                 && git push -q origin "HEAD:${GITHUB_REF_NAME}"; then
-                return 0
-              fi
-              sleep 5
-            done
-            echo "::warning::push feilet, ${ubetalt} commit(s) venter til neste runde"
+          # Nullstill til nyeste versjon på GitHub. Trygt fordi alt vi har
+          # lokalt enten er pushet, eller kan hentes på nytt: samle.py sjekker
+          # nye meldinger mot det som ligger på disk. Vi rebaser aldri
+          # datafiler. To kjøringer som legger til linjer på slutten av samme
+          # fil gir alltid konflikt.
+          synk() {
+            git rebase --abort >/dev/null 2>&1 || true
+            git fetch -q origin "${GREN}" || return 1
+            git reset -q --hard "origin/${GREN}"
+            git clean -qfd -- data dekning
           }
 
+          skriv_puls() {
+            [ -s "${PULS}" ] || return 0
+            mkdir -p dekning
+            while read -r t; do
+              echo "${t}" >> "dekning/${t:0:7}.txt"
+            done < "${PULS}"
+          }
+
+          # 0 når runden er trygt på GitHub, eller når det ikke var noe nytt.
+          lagre() {
+            [ -z "$(git status --porcelain -- data sammendrag.json)" ] && return 0
+            git add -A -- data sammendrag.json
+            antall=$(git diff --cached --numstat -- data | awk '{s+=$1} END {print s+0}')
+            skriv_puls
+            git add -A
+            git commit -q -m "${antall} nye meldinger" || return 1
+            git push -q origin "HEAD:${GREN}" || return 1
+            : > "${PULS}"
+          }
+
+          bestilt=0
           for runde in $(seq 1 "${RUNDER}"); do
             echo "--- runde ${runde}/${RUNDER}  $(date -u +%H:%M:%S)Z ---"
-            python samle.py || echo "::warning::henting feilet i runde ${runde}"
-            lagre
+
+            # Bestill neste kjede mot slutten. Den venter i kø til denne er
+            # ferdig, og starter da på nyeste versjon. GITHUB_TOKEN får lov
+            # til å starte workflow_dispatch. Vi bestiller sent, ikke tidlig,
+            # så en kjøring som krasjer med en gang ikke kan starte en ny i
+            # samme slengen, om og om igjen.
+            if [ "${runde}" -ge $((RUNDER - 1)) ] && [ "${bestilt}" -eq 0 ]; then
+              if gh workflow run samle.yml --ref "${GREN}" -R "${GITHUB_REPOSITORY}"; then
+                bestilt=1
+                echo "Neste kjede er bestilt."
+              else
+                echo "::warning::fikk ikke bestilt neste kjede, cronen må ta over"
+              fi
+            fi
+
+            tidspunkt=$(date -u +%Y-%m-%dT%H:%MZ)
+            ok=0
+            for forsok in 1 2 3; do
+              if ! synk; then
+                echo "::warning::fikk ikke hentet fra GitHub i runde ${runde}"
+                sleep 10
+                continue
+              fi
+              if ! python samle.py; then
+                echo "::warning::henting fra Entur feilet i runde ${runde}"
+                break
+              fi
+              if lagre; then
+                ok=1
+                break
+              fi
+              echo "::warning::push feilet i runde ${runde} (forsøk ${forsok}), henter på nytt"
+              sleep 5
+            done
+            [ "${ok}" -eq 1 ] && echo "${tidspunkt}" >> "${PULS}"
+
             [ "${runde}" -lt "${RUNDER}" ] && sleep "${PAUSE}"
           done
+
+          # Resten av pulsen, fra runder uten nye meldinger på slutten.
+          for forsok in 1 2 3; do
+            [ -s "${PULS}" ] || break
+            synk || { sleep 5; continue; }
+            skriv_puls
+            git add -A
+            if git commit -q -m "dekning" && git push -q origin "HEAD:${GREN}"; then
+              : > "${PULS}"
+              break
+            fi
+            sleep 5
+          done
+          [ -s "${PULS}" ] && echo "::warning::fikk ikke lagret dekningen for siste runder"
+
           echo "Ferdig etter ${RUNDER} runder."

@@ -28,6 +28,7 @@ det ikke maken.
 |---|---|
 | `data/ÅÅÅÅ-MM.jsonl` | Én linje per unike melding, den måneden den ble sett |
 | `sammendrag.json` | Opptelling av hele arkivet |
+| `dekning/ÅÅÅÅ-MM.txt` | Ett tidsstempel per runde som faktisk ble hentet og lagret (fra 6. november 2026) |
 
 Feltene per melding: situasjonsnummer, versjon, selskap, gyldighetsperiode,
 tittel og beskrivelse på norsk **og** engelsk (togselskapene leverer begge),
@@ -99,6 +100,20 @@ døgnet rundt, og git-historikken — som *er* arkivet — ville druknet i støy
 **Offentlig repo er et bevisst valg.** GitHub runder hver Actions-kjøring opp
 til ett helt minutt. På et privat repo ville 4 320 kjøringer i måneden sprengt
 gratiskvoten på 2 000 minutter. Offentlige repo har ingen grense.
+
+**Hullene før 6. november 2026.** Fra start til 6. november mangler
+arkivet store deler av tiden: målt på commits var det ingen ny data i 46 %
+av tiden de siste 30 døgnene. To grunner. Kjøringer som ventet i kø sjekket
+ut commiten fra da de ble bestilt, ikke da de startet, fikk konflikt ved
+første push og mistet fem timer hver gang (annenhver kjede). Og når ingen
+kjøring lå i kø, sto alt til GitHub fyrte cronen igjen, ofte to til tre
+timer senere. Totaler fra den perioden er for lave, og korte avvik er mest
+underrepresentert, fordi de forsvinner fra feeden før neste henting.
+
+Nå synker hver runde med GitHub før den henter, i stedet for å rebase
+etterpå, og hver kjede bestiller sin egen etterfølger. Cronen er reserve.
+`dekning/` viser nøyaktig hvilke fem-minutters runder som er med, så
+dekningen kan oppgis i stedet for å gjettes.
 
 **Schedule kan sovne.** GitHub deaktiverer planlagte workflows i repo uten
 aktivitet på 60 dager. Dette repoet committer selv, men hvis innsamlingen
