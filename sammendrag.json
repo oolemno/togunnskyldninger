@@ -1,14 +1,14 @@
 {
-  "oppdatert": "2026-11-06T18:29:45+00:00",
-  "antall_situasjoner": 42765,
-  "antall_rader": 45299,
+  "oppdatert": "2026-11-06T18:34:49+00:00",
+  "antall_situasjoner": 42767,
+  "antall_rader": 45301,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-11-06T18:29:45+00:00",
+  "sist_sett": "2026-11-06T18:34:49+00:00",
   "tapte_vogner": 10119,
   "uten_oppgitt_grunn": 406,
   "kun_informasjon": 5407,
   "per_selskap": {
-    "GCO": 15157,
+    "GCO": 15158,
     "NSB": 9657,
     "RUT": 5828,
     "MOR": 3011,
@@ -30,7 +30,7 @@
     "VYB": 44,
     "FJL": 28,
     "NBU": 24,
-    "OST": 15,
+    "OST": 16,
     "BFO": 15,
     "VKT": 3,
     "VIL": 1
