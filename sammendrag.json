@@ -1,15 +1,15 @@
 {
-  "oppdatert": "2026-11-10T22:30:40+00:00",
-  "antall_situasjoner": 46679,
-  "antall_rader": 49389,
+  "oppdatert": "2026-11-10T22:46:02+00:00",
+  "antall_situasjoner": 46680,
+  "antall_rader": 49391,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-11-10T22:30:40+00:00",
+  "sist_sett": "2026-11-10T22:46:01+00:00",
   "tapte_vogner": 11262,
   "uten_oppgitt_grunn": 426,
   "kun_informasjon": 5608,
   "per_selskap": {
     "GCO": 17026,
-    "NSB": 10354,
+    "NSB": 10355,
     "RUT": 6357,
     "MOR": 3272,
     "SKY": 2083,
@@ -39,7 +39,7 @@
   "paavirkning": {
     "faerre_vogner": 2880,
     "innstilt": 2644,
-    "forsinket": 1185,
+    "forsinket": 1186,
     "buss_for_tog": 638
   },
   "uten_grunn_per_paavirkning": {
@@ -51,8 +51,8 @@
     "en signalfeil": 609,
     "arbeid på sporet": 350,
     "vi mangler personell": 343,
-    "en tidligere stans": 322,
-    "en teknisk feil med toget": 216,
+    "en tidligere stans": 323,
+    "en teknisk feil med toget": 215,
     "togsettet vi trenger er forsinket": 214,
     "streik": 203,
     "andre tog på strekningen er forsinket": 170,
