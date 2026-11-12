@@ -1,15 +1,15 @@
 {
-  "oppdatert": "2026-11-12T22:06:13+00:00",
-  "antall_situasjoner": 49600,
-  "antall_rader": 52522,
+  "oppdatert": "2026-11-12T22:11:19+00:00",
+  "antall_situasjoner": 49601,
+  "antall_rader": 52523,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-11-12T22:06:13+00:00",
+  "sist_sett": "2026-11-12T22:11:18+00:00",
   "tapte_vogner": 12205,
   "uten_oppgitt_grunn": 469,
-  "kun_informasjon": 5922,
+  "kun_informasjon": 5923,
   "per_selskap": {
     "GCO": 17775,
-    "NSB": 10997,
+    "NSB": 10998,
     "RUT": 7175,
     "MOR": 3493,
     "SKY": 2153,
@@ -69,6 +69,7 @@
     "planlagt vedlikehold på strekningen er forsinket": 3,
     "bane nor jobber på sporet": 2,
     "vi må bytte personell": 2,
+    "et tog har sporet av": 2,
     "et kjøretøy sperrer sporet": 1,
     "foregående tog er innstilt": 1,
     "det er dyr i sporet": 1,
@@ -76,8 +77,7 @@
     "avstigning av passasjer": 1,
     "feil avgangsspor på avgangsskjermene": 1,
     "utfordrende værforhold": 1,
-    "et tre har falt over sporet": 1,
-    "et tog har sporet av": 1
+    "et tre har falt over sporet": 1
   },
   "arsaker_planlagt": {
     "vedlikeholdsarbeid": 4
