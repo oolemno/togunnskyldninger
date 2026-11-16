@@ -1,17 +1,17 @@
 {
-  "oppdatert": "2026-11-16T16:06:30+00:00",
-  "antall_situasjoner": 53000,
-  "antall_rader": 56391,
+  "oppdatert": "2026-11-16T16:11:36+00:00",
+  "antall_situasjoner": 53008,
+  "antall_rader": 56400,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-11-16T16:06:30+00:00",
+  "sist_sett": "2026-11-16T16:11:35+00:00",
   "tapte_vogner": 13092,
-  "uten_oppgitt_grunn": 511,
+  "uten_oppgitt_grunn": 513,
   "kun_informasjon": 6296,
   "per_selskap": {
-    "GCO": 19094,
+    "GCO": 19096,
     "NSB": 11875,
-    "RUT": 7467,
-    "MOR": 3721,
+    "RUT": 7470,
+    "MOR": 3722,
     "SKY": 2294,
     "KOL": 1998,
     "VYG": 1660,
@@ -20,7 +20,7 @@
     "NOR": 763,
     "TRO": 666,
     "FIN": 362,
-    "GOA": 332,
+    "GOA": 334,
     "VOT": 204,
     "AKT": 136,
     "INN": 134,
@@ -38,12 +38,12 @@
   },
   "paavirkning": {
     "faerre_vogner": 3311,
-    "innstilt": 3175,
+    "innstilt": 3177,
     "forsinket": 1312,
     "buss_for_tog": 664
   },
   "uten_grunn_per_paavirkning": {
-    "innstilt": 476,
+    "innstilt": 478,
     "faerre_vogner": 35
   },
   "arsaker_uplanlagt": {
