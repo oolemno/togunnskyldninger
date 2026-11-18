@@ -1,15 +1,15 @@
 {
-  "oppdatert": "2026-11-18T02:28:24+00:00",
-  "antall_situasjoner": 54745,
-  "antall_rader": 58278,
+  "oppdatert": "2026-11-18T02:43:31+00:00",
+  "antall_situasjoner": 54748,
+  "antall_rader": 58281,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-11-18T02:28:23+00:00",
-  "tapte_vogner": 13746,
+  "sist_sett": "2026-11-18T02:43:30+00:00",
+  "tapte_vogner": 13756,
   "uten_oppgitt_grunn": 521,
   "kun_informasjon": 6510,
   "per_selskap": {
     "GCO": 19697,
-    "NSB": 12359,
+    "NSB": 12362,
     "RUT": 7611,
     "MOR": 3884,
     "SKY": 2380,
@@ -37,9 +37,9 @@
     "VIL": 1
   },
   "paavirkning": {
-    "faerre_vogner": 3472,
+    "faerre_vogner": 3474,
     "innstilt": 3310,
-    "forsinket": 1338,
+    "forsinket": 1339,
     "buss_for_tog": 708
   },
   "uten_grunn_per_paavirkning": {
@@ -47,7 +47,7 @@
     "faerre_vogner": 35
   },
   "arsaker_uplanlagt": {
-    "vi mangler et togsett": 3752,
+    "vi mangler et togsett": 3754,
     "en signalfeil": 782,
     "en tidligere stans": 388,
     "vi mangler personell": 359,
@@ -63,7 +63,7 @@
     "en jordfeil": 87,
     "et tog sperrer sporet": 78,
     "strømproblemer": 53,
-    "vi venter på personell": 47,
+    "vi venter på personell": 48,
     "en brann ved sporet": 35,
     "det har gått et ras på strekningen": 25,
     "en feil i kommunikasjonssystemet": 24,
