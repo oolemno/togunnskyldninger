@@ -1,16 +1,16 @@
 {
-  "oppdatert": "2026-11-20T12:55:18+00:00",
-  "antall_situasjoner": 57475,
-  "antall_rader": 61227,
+  "oppdatert": "2026-11-20T13:00:23+00:00",
+  "antall_situasjoner": 57477,
+  "antall_rader": 61229,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-11-20T12:55:17+00:00",
+  "sist_sett": "2026-11-20T13:00:22+00:00",
   "tapte_vogner": 14818,
   "uten_oppgitt_grunn": 532,
   "kun_informasjon": 6931,
   "per_selskap": {
     "GCO": 20355,
-    "NSB": 13093,
-    "RUT": 8131,
+    "NSB": 13094,
+    "RUT": 8132,
     "MOR": 4132,
     "SKY": 2473,
     "KOL": 2147,
@@ -39,7 +39,7 @@
   "paavirkning": {
     "faerre_vogner": 3723,
     "innstilt": 3461,
-    "forsinket": 1388,
+    "forsinket": 1389,
     "buss_for_tog": 818
   },
   "uten_grunn_per_paavirkning": {
@@ -79,7 +79,8 @@
     "feil avgangsspor på avgangsskjermene": 1,
     "utfordrende værforhold": 1,
     "et tre har falt over sporet": 1,
-    "t-banestenging i oslo 19": 1
+    "t-banestenging i oslo 19": 1,
+    "vi venter på kunder fra vy buss": 1
   },
   "arsaker_planlagt": {
     "vedlikeholdsarbeid": 4
