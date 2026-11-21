@@ -1,9 +1,9 @@
 {
-  "oppdatert": "2026-11-21T11:34:45+00:00",
-  "antall_situasjoner": 58164,
-  "antall_rader": 61942,
+  "oppdatert": "2026-11-21T11:39:49+00:00",
+  "antall_situasjoner": 58165,
+  "antall_rader": 61943,
   "samler_siden": "2026-09-09T09:51:35+00:00",
-  "sist_sett": "2026-11-21T11:34:44+00:00",
+  "sist_sett": "2026-11-21T11:39:49+00:00",
   "tapte_vogner": 14847,
   "uten_oppgitt_grunn": 538,
   "kun_informasjon": 6949,
@@ -32,7 +32,7 @@
     "FJL": 28,
     "OST": 16,
     "BFO": 15,
-    "VKT": 4,
+    "VKT": 5,
     "NWY": 2,
     "VIL": 1
   },
